@@ -1,0 +1,14 @@
+
+
+<svg width="204" height="204" viewBox="0 0 204 204" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+<linearGradient id="gradient4" x1="0" y1="0" x2="204" y2="204" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AA367C"/>
+<stop offset="1" stop-color="#4A2FBD"/>
+</linearGradient>
+</defs>
+<circle cx="102" cy="102" r="100" fill="url(#gradient4)"/>
+  <text x="30" y="90" font-size="28" font-family="inherit" fill="white">Programming</text>
+  <text x="38" y="130" font-size="28" font-family="inherit" fill="white">Languages</text>
+</svg>
