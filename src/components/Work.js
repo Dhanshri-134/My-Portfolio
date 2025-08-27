@@ -1,83 +1,95 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/p11.png";
-import projImg2 from "../assets/img/project-img2.png";
-import Intern2 from "../assets/img/p13.png";
-import projImg4 from "../assets/img/p14.png";
-import projImg5 from "../assets/img/p15.png";
-import Intern1 from "../assets/img/p21.png";
-import projImg31 from "../assets/img/p31.png";
-import projImg32 from "../assets/img/p32.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { Container, Row, Col } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import '../App.css';
 
 export const Work = () => {
-
   const work = [
     {
-      title: "Web Developer",
-      description: "Dhrumi Technologies",
-      contact:"info@dhrumi.com",
-      imgUrl: Intern1,
+      title: 'Intern for Software Developer and Team Lead',
+      company: 'Shris Tech',
+      period: '01/08/2025 – Present',
+      mode: 'Hybrid',
+      description: [
+        'Currently contributing to the development and maintenance of a Food Delivery System (Android & Web) using Flutter, Firebase & React.',
+        'Designed and implemented features across Admin Panel, Customer, Delivery Partner, and Restaurant modules.'
+      ]
     },
     {
-      title: "Full Stack Developer",
-      description: "Web Stack Academy",
-      contact:"www.webstackacademy.com",
-      imgUrl: Intern2,
+      title: 'Intern for Software Development Engineer',
+      company: 'Bluestock Fintech',
+      period: '01/03/2025 – 31/04/2025',
+      mode: 'Online',
+      description: [
+        'Worked on financial analysis, data visualization, and ML model development to support predictive insights.'
+      ]
     },
     {
-      title: "Software Development Engineer",
-      description: "Bluestock Fintech",
-      contact:"www.bluestock.in",
-      imgUrl: Intern2,
+      title: 'Intern for Web Development Using MERN',
+      company: 'Web Stack Academy',
+      period: '02/07/2024 – 16/09/2024',
+      mode: 'Online',
+      description: [
+        'Developed a full-stack Food Delivery App (MERN), implementing authentication, order tracking, menu management, and payments.'
+      ]
+    },
+    {
+      title: 'Intern for Web Development',
+      company: 'Dhrumi Technologies',
+      period: '29/07/2022 – 03/09/2022',
+      mode: 'Online',
+      description: [
+        'Developed a Food Ordering & Restaurant Booking System using Django, with dashboards for users, restaurants, and hotels.'
+      ]
     }
   ];
 
+  const [visible, setVisible] = useState([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(work.map(() => true));
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [work.length]);
 
   return (
-    <section className="project" id="projects">
+    <section className="work-experience" id="work">
+      {/* Floating shapes / scattered objects */}
+      <div className="floating-objects">
+        <div className="obj obj1"></div>
+        <div className="obj obj2"></div>
+        <div className="obj obj3"></div>
+        <div className="obj obj4"></div>
+        <div className="obj obj5"></div>
+      </div>
+
       <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Work Experience</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Web Development</Nav.Link>
-                    </Nav.Item>
-                    
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          work.map((work, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...work}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    
-                    
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
+        <h2 className="section-title">Professional Experience</h2>
+        <p className="section-description">
+          A glimpse of my journey through internships and professional growth.
+        </p>
+
+        <div className="work-cards">
+          {work.map((item, idx) => (
+            <Row 
+              key={idx} 
+              className={`work-row ${idx % 2 === 0 ? 'left' : 'right'} ${visible[idx] ? 'slide-in' : ''}`} 
+              style={{animationDelay: `${idx * 0.3}s`}}
+            >
+              <Col md={6} className="work-card-col">
+                <div className="work-card">
+                  <h3>{item.title}</h3>
+                  <p className="company">{item.company} | <span className="mode">{item.mode}</span></p>
+                  <p className="period">{item.period}</p>
+                  <ul>
+                    {item.description.map((desc, i) => <li key={i}>{desc}</li>)}
+                  </ul>
+                </div>
+              </Col>
+            </Row>
+          ))}
+        </div>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
     </section>
-  )
-}
+  );
+};

@@ -1,14 +1,17 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/p11.png";
-// import projImg2 from "../assets/img/p12.png";
+import projImg2 from "../assets/img/p12.png";
 import projImg3 from "../assets/img/p13.png";
 import projImg4 from "../assets/img/p14.png";
 import projImg5 from "../assets/img/p15.png";
 import projImg6 from "../assets/img/p16.png";
+import projImg7 from "../assets/img/p17.png";
 import projImg21 from "../assets/img/p21.png";
+import projImg22 from "../assets/img/p22.png";
 import projImg31 from "../assets/img/p31.png";
 import projImg32 from "../assets/img/p32.png";
+import projImg33 from "../assets/img/p33.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -24,7 +27,7 @@ export const Projects = () => {
     {
       title: "Craft Fusion",
       description: "Ecommerce Shopping Website developed using SpringBoot Framework",
-      imgUrl: projImg1,
+      imgUrl: projImg2,
     },
     {
       title: "Food Delivery App",
@@ -46,6 +49,11 @@ export const Projects = () => {
       description: "Developed Using Django",
       imgUrl: projImg6,
     },
+    // {
+    //   title: "SoulSync - Organ Donation Management",
+    //   description: "Developed Using PHP",
+    //   imgUrl: projImg7,
+    // },
   ];
 
   const projects2 = [
@@ -55,14 +63,14 @@ export const Projects = () => {
       imgUrl: projImg21,
     },
     {
-      title: "Advance Java Manual",
+      title: "Contact Management System",
       description: "Developed Using Java",
-      imgUrl: projImg3,
+      imgUrl: projImg22,
     },
     {
-      title: "E-Ballot System",
-      description: "Developed Using Java",
-      imgUrl: projImg3,
+      title: "SoulSync - Organ Donation Management",
+      description: "Developed Using PHP",
+      imgUrl: projImg7,
     }
   ];
 
@@ -77,7 +85,7 @@ export const Projects = () => {
     },
     {
       title: "Real-Estate Price Prediction",
-      imgUrl: projImg3,
+      imgUrl: projImg33,
     }
   ];
   return (
