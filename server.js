@@ -1,52 +1,51 @@
+require('dotenv').config();
 const express = require("express");
-const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
-// server used to send send emails
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" })); // allow your React frontend
 app.use(express.json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
 
+// Configure nodemailer with Gmail App Password
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: "********@gmail.com",
-    pass: ""
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
+contactEmail.verify((error, success) => {
+  if (error) console.log("Nodemailer Error:", error);
+  else console.log("Ready to send emails");
 });
 
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-  const mail = {
-    from: name,
-    to: "********@gmail.com",
+// Contact form endpoint
+app.post("/contact", (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
+  const name = `${firstName} ${lastName}`;
+
+  const mailOptions = {
+    from: `"${name}" <${email}>`,
+    to: process.env.TO_EMAIL,
     subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
+    html: `<p><strong>Name:</strong> ${name}</p>
+           <p><strong>Email:</strong> ${email}</p>
+           <p><strong>Phone:</strong> ${phone}</p>
+           <p><strong>Message:</strong><br/>${message}</p>`,
   };
-  contactEmail.sendMail(mail, (error) => {
+
+  contactEmail.sendMail(mailOptions, (error, info) => {
     if (error) {
-      res.json(error);
+      console.error(error);
+      return res.status(500).json({ code: 500, status: "Error sending message" });
     } else {
-      res.json({ code: 200, status: "Message Sent" });
+      console.log("Message sent: " + info.response);
+      return res.json({ code: 200, status: "Message Sent" });
     }
   });
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
