@@ -25,8 +25,8 @@ export const NavBar = () => {
   return (
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
-        <Navbar.Brand href="/">
-          <img src="/favicon.ico" alt="Logo" />
+        <Navbar.Brand>
+          Dhanshri Yewankar
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>

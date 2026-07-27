@@ -51,6 +51,15 @@ export const Work = () => {
       description: [
         'Developed a full-stack Food Delivery App (MERN), implementing authentication, order tracking, menu management, and payments.'
       ]
+    },
+    {
+      title: 'Intern for Web Development',
+      company: 'Dhrumi Technologies',
+      period: '29/07/2022 – 03/09/2022',
+      mode: 'Online',
+      description: [
+        'Developed a Food Ordering & Restaurant Booking System using Django, with dashboards for users, restaurants, and hotels.'
+      ]
     }
   ];
 
