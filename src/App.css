@@ -966,3 +966,55 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   0%, 100% { transform: translateY(0px) translateX(0px); }
   50% { transform: translateY(-20px) translateX(15px); }
 }
+
+/* --- Media Queries for Mobile Responsiveness --- */
+@media (max-width: 992px) {
+  .work-row {
+    flex-direction: column !important;
+  }
+  .work-card-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* General Adjustments */
+  h1 { font-size: 2rem !important; }
+  h2.section-title { font-size: 2rem; }
+  
+  /* Banner Adjustments */
+  .banner { padding: 120px 0 50px 0; }
+  .banner h1 { font-size: 35px; }
+  .banner-text { max-width: 100%; margin-top: 10px; }
+  .name { font-size: 2rem; }
+  .typewriter { font-size: 1.2rem; }
+  
+  /* Work Experience */
+  .work-row { flex-direction: column !important; gap: 20px; }
+  .work-card-col { flex: 0 0 100%; max-width: 100%; }
+  .work-cards { gap: 30px; }
+  
+  /* Skills */
+  .skill h2 { font-size: 2rem; }
+  .skill-slider .skill-blob { min-height: 150px; padding: 20px; }
+  
+  /* Projects */
+  .project h2 { font-size: 30px; }
+  .project .nav.nav-pills { width: 100%; flex-direction: column; border-radius: 15px; }
+  .project .nav.nav-pills .nav-item { width: 100%; }
+  .nav-link#projects-tabs-tab-first,
+  .nav-link#projects-tabs-tab-second,
+  .nav-link#projects-tabs-tab-third { 
+    border-radius: 0; 
+    border: 1px solid rgba(255,255,255,0.2); 
+    margin-bottom: 5px;
+  }
+  
+  /* Newsletter */
+  .newsletter-bx { padding: 30px; margin-top: -60px; }
+  .new-email-bx { flex-direction: column; border-radius: 10px; background: transparent; padding: 0; }
+  .new-email-bx input { margin-bottom: 10px; background: #fff; border-radius: 10px; padding: 15px; }
+  .new-email-bx button { width: 100%; border-radius: 10px; padding: 15px; }
+  .new-email-bx::before, .new-email-bx::after { display: none; }
+}

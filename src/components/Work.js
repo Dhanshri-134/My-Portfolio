@@ -5,13 +5,33 @@ import '../App.css';
 export const Work = () => {
   const work = [
     {
-      title: 'Intern for Software Developer and Team Lead',
-      company: 'Shris Tech',
-      period: '01/08/2025 – Present',
+      title: 'Chief Technology Officer',
+      company: 'Shris Tech & Shris Innovations',
+      period: 'Dec 2025 - Present (8 mos)',
       mode: 'Hybrid',
       description: [
+        'Serving as CTO & Co-Founder for both Shris Tech (Proprietorship) and Shris Innovations (PVT LTD).',
+        'Leading the technological vision and development strategies for both companies side by side.',
         'Currently contributing to the development and maintenance of a Food Delivery System (Android & Web) using Flutter, Firebase & React.',
         'Designed and implemented features across Admin Panel, Customer, Delivery Partner, and Restaurant modules.'
+      ]
+    },
+    {
+      title: 'Research And Development Engineer',
+      company: 'Shris Tech',
+      period: 'Nov 2025 - Dec 2025 (2 mos)',
+      mode: 'Remote',
+      description: [
+        'Conducted research and development for emerging tech solutions and innovative features.'
+      ]
+    },
+    {
+      title: 'Software Developer Intern and Team Lead',
+      company: 'Shris Tech',
+      period: 'Aug 2025 - Oct 2025 (3 mos)',
+      mode: 'Hybrid',
+      description: [
+        'Led a team of developers and contributed to full-stack application development.'
       ]
     },
     {
@@ -30,15 +50,6 @@ export const Work = () => {
       mode: 'Online',
       description: [
         'Developed a full-stack Food Delivery App (MERN), implementing authentication, order tracking, menu management, and payments.'
-      ]
-    },
-    {
-      title: 'Intern for Web Development',
-      company: 'Dhrumi Technologies',
-      period: '29/07/2022 – 03/09/2022',
-      mode: 'Online',
-      description: [
-        'Developed a Food Ordering & Restaurant Booking System using Django, with dashboards for users, restaurants, and hotels.'
       ]
     }
   ];

@@ -12,7 +12,7 @@ export const Banner = () => {
     const [delta, setDelta] = useState(300 - Math.random() * 100);
     const [index, setIndex] = useState(1);
 
-    const toRotate = ["Full Stack Developer", "Web & Mobile Enthusiast", "Problem Solver"];
+    const toRotate = ["CTO & Co-Founder", "Full Stack Developer", "Web & Mobile Enthusiast", "Problem Solver"];
     const period = 2000;
 
     useEffect(() =>{
@@ -60,9 +60,9 @@ export const Banner = () => {
     <h1 className="name">Dhanshri Yewankar</h1>
     <h2 className="typewriter">- {text}</h2>
     <p className="description">
-        Computer Engineering student skilled in <strong>Python, Java, React, Django, Flutter</strong> and more.
-        Experienced in building full-stack applications through projects, internships, and hackathons.
-        Passionate about creating <strong>impactful digital solutions</strong> and growing as a Full Stack Developer.
+        Visionary CTO & Co-Founder bridging the gap between business strategy and cutting-edge technology. 
+        Experienced in scaling architectures, leading cross-functional engineering teams, and driving product innovation from R&D to market launch. 
+        Passionate about adopting modern tech stacks to deliver <strong>scalable, high-impact digital solutions</strong>.
     </p>
     <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
         <button className="vvd">Resume <ArrowRightCircle size={25} /></button>
